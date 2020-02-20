@@ -169,7 +169,7 @@ def main():
 			except IneligibleError as e:
 				print(e)
 				sys.exit(1)
-			images = [os.path.join(tmp_dir, i) for i in os.listdir(tmp_dir)]
+			images = [os.path.join(tmp_dir, i.zfill(8)) for i in os.listdir(tmp_dir)]
 			print('Converting to {}...'.format(fmt.upper()))
 			if fmt == 'pdf':
 				make_pdf(abs, images, title)
