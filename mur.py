@@ -104,7 +104,7 @@ def download(urls, tmp_dir, cur=0):
 		r = client.session.get(url, stream=True)
 		r.raise_for_status()
 		size = int(r.headers.get('content-length', 0))
-		abs = os.path.join(tmp_dir, str(cur).zfill(8)+'.jpg')
+		abs = os.path.join(tmp_dir, str(cur).zfill(4)+'.jpg')
 		with open(abs, 'wb') as f:
 			with tqdm(total=size, unit='B',
 				unit_scale=True, unit_divisor=1024,
