@@ -68,7 +68,7 @@ def parse_args():
 
 def parse_cookies(cd, out_cookies={}):
 	with open(os.path.join(cd, 'cookies.txt')) as f:
-		for line in f.readlines():
+		for line in f:
 			if not line.startswith('#'):
 				field = line.strip().split('\t')
 				out_cookies[field[5]] = field[6]
