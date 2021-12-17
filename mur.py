@@ -70,8 +70,11 @@ def parse_cookies(cd, out_cookies={}):
 	with open(os.path.join(cd, 'cookies.txt')) as f:
 		for line in f:
 			if not line.startswith('#'):
-				field = line.strip().split('\t')
-				out_cookies[field[5]] = field[6]
+				try:
+					field = line.strip().split('\t')
+					out_cookies[field[5]] = field[6]
+				except IndexError:
+					continue
 	client.set_cookies(out_cookies)
 	
 def exist_check(f):
